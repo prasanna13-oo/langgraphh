@@ -15,10 +15,7 @@ import google.generativeai as genai
 
 
 
-if not api_key:
-    raise ValueError("GEMINI_API_KEY environment variable is not set.")
 
-genai.configure(api_key=api_key)
 
 
 
