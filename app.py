@@ -12,7 +12,14 @@ from langgraph.graph import StateGraph, START, END
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 import google.generativeai as genai
-from google.colab import userdata
+
+
+
+if not api_key:
+    raise ValueError("GEMINI_API_KEY environment variable is not set.")
+
+genai.configure(api_key=api_key)
+
 
 
 # ==========================================
@@ -20,8 +27,8 @@ from google.colab import userdata
 # ==========================================
 
 try:
-    api_key = userdata.get("GEMINI_API_KEY")
-    genai.configure(api_key=api_key)
+       api_key = os.getenv("GEMINI_API_KEY")
+       genai.configure(api_key=api_key)
     print("API Key configured successfully.")
 except userdata.SecretNotFoundError:
     print("Error: GEMINI_API_KEY not found in Colab secrets")
