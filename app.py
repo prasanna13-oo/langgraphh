@@ -27,8 +27,8 @@ genai.configure(api_key=api_key)
 # ==========================================
 
 try:
-       api_key = os.getenv("GEMINI_API_KEY")
-       genai.configure(api_key=api_key)
+    api_key = os.getenv("GEMINI_API_KEY")
+    genai.configure(api_key=api_key)
     print("API Key configured successfully.")
 except userdata.SecretNotFoundError:
     print("Error: GEMINI_API_KEY not found in Colab secrets")
